@@ -3,6 +3,7 @@ import { Component } from 'react';
 import Section from './Section/Section';
 import Form from './Form/Form';
 import SearchForm from './SearchForm/SearchForm';
+import ContactList from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
@@ -13,8 +14,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   onChangeFilter = value => {
@@ -43,16 +42,10 @@ export class App extends Component {
         <Section title="Phone Book">
           <Form getValue={addContact} />
         </Section>
+
         <Section title="Contacts">
           <SearchForm value={filter} onChangeValue={onChangeFilter} />
-
-          <ul>
-            {filteredContacts.map(({ name, id, number }) => (
-              <li key={id}>
-                {name}: {number}
-              </li>
-            ))}
-          </ul>
+          <ContactList contacts={filteredContacts} />
         </Section>
       </div>
     );
