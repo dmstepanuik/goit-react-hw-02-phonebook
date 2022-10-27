@@ -4,6 +4,7 @@ import Section from './Section/Section';
 import Form from './Form/Form';
 import SearchForm from './SearchForm/SearchForm';
 import ContactList from './ContactList/ContactList';
+import s from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -47,7 +48,7 @@ export class App extends Component {
     const filteredContacts = this.getFilteredContacts();
 
     return (
-      <div>
+      <div className={s.container}>
         <Section title="Phone Book">
           <Form getValue={addContact} />
         </Section>

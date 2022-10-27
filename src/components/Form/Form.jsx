@@ -1,4 +1,5 @@
 import PT from 'prop-types';
+import s from './Form.module.css';
 export default function Form({ getValue }) {
   const onSubmit = e => {
     e.preventDefault();
@@ -12,9 +13,9 @@ export default function Form({ getValue }) {
     form.reset();
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form className={s.form} onSubmit={onSubmit}>
       <div>
-        <label>
+        <label className={s.label}>
           Name
           <input
             type="text"
@@ -26,7 +27,7 @@ export default function Form({ getValue }) {
         </label>
       </div>
       <div>
-        <label>
+        <label className={s.label}>
           Number
           <input
             type="tel"
@@ -37,7 +38,9 @@ export default function Form({ getValue }) {
           />
         </label>
       </div>
-      <button type="submit">Add contact</button>
+      <button className={s.btn} type="submit">
+        Add contact
+      </button>
     </form>
   );
 }
