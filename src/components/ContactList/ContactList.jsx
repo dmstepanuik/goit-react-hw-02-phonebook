@@ -1,10 +1,16 @@
 import ContactItem from './ContactItem/ContactItem';
 
-export default function ContactList({ contacts }) {
+export default function ContactList({ contacts, deleteContact }) {
   return (
     <ul>
       {contacts.map(({ name, id, number }) => (
-        <ContactItem key={id} name={name} number={number} />
+        <ContactItem
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onDelete={deleteContact}
+        />
       ))}
     </ul>
   );

@@ -1,12 +1,14 @@
 export default function Form({ getValue }) {
   const onSubmit = e => {
     e.preventDefault();
+    const form = e.target;
     const contact = {
-      name: e.target.elements.name.value,
-      number: e.target.elements.number.value,
+      name: form.elements.name.value,
+      number: form.elements.number.value,
     };
 
     getValue(contact);
+    form.reset();
   };
   return (
     <form onSubmit={onSubmit}>

@@ -28,13 +28,22 @@ export class App extends Component {
   };
 
   addContact = contact => {
+    if (this.state.contacts.some(it => it.name === contact.name)) {
+      alert(`${contact.name} is alredy in contacts`);
+
+      return;
+    }
     contact.id = nanoid(4);
     this.setState({ contacts: [...this.state.contacts, contact] });
   };
 
+  deleteContact = id => {
+    this.setState({ contacts: this.state.contacts.filter(it => it.id !== id) });
+  };
+
   render() {
     const { filter, contacts } = this.state;
-    const { addContact, onChangeFilter } = this;
+    const { addContact, onChangeFilter, deleteContact } = this;
     const filteredContacts = this.getFilteredContacts();
 
     return (
@@ -45,7 +54,10 @@ export class App extends Component {
 
         <Section title="Contacts">
           <SearchForm value={filter} onChangeValue={onChangeFilter} />
-          <ContactList contacts={filteredContacts} />
+          <ContactList
+            contacts={filteredContacts}
+            deleteContact={deleteContact}
+          />
         </Section>
       </div>
     );

@@ -1,7 +1,7 @@
-export default function ContactItem({ name, number }) {
+export default function ContactItem({ id, name, number, onDelete }) {
   return (
     <li>
-      {name}: {number}
+      {name}: {number} <button onClick={() => onDelete(id)}>Delete</button>
     </li>
   );
 }
