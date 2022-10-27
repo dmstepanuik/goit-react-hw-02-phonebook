@@ -1,3 +1,4 @@
+import PT from 'prop-types';
 export default function Form({ getValue }) {
   const onSubmit = e => {
     e.preventDefault();
@@ -40,3 +41,6 @@ export default function Form({ getValue }) {
     </form>
   );
 }
+Form.propTypes = {
+  getValue: PT.func.isRequired,
+};

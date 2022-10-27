@@ -1,3 +1,4 @@
+import PT from 'prop-types';
 import ContactItem from './ContactItem/ContactItem';
 
 export default function ContactList({ contacts, deleteContact }) {
@@ -15,3 +16,14 @@ export default function ContactList({ contacts, deleteContact }) {
     </ul>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PT.arrayOf(
+    PT.shape({
+      id: PT.string.isRequired,
+      name: PT.string.isRequired,
+      number: PT.string.isRequired,
+    })
+  ).isRequired,
+  deleteContact: PT.func.isRequired,
+};

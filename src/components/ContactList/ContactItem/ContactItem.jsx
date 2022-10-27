@@ -1,3 +1,4 @@
+import PT from 'prop-types';
 export default function ContactItem({ id, name, number, onDelete }) {
   return (
     <li>
@@ -5,3 +6,9 @@ export default function ContactItem({ id, name, number, onDelete }) {
     </li>
   );
 }
+ContactItem.propTypes = {
+  id: PT.string.isRequired,
+  name: PT.string.isRequired,
+  number: PT.string.isRequired,
+  onDelete: PT.func.isRequired,
+};
