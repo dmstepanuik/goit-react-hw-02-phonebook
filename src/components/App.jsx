@@ -43,7 +43,7 @@ export class App extends Component {
   };
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     const { addContact, onChangeFilter, deleteContact } = this;
     const filteredContacts = this.getFilteredContacts();
 
